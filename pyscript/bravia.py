@@ -1,32 +1,16 @@
 import datetime
 import requests
 import json
-import os
-import configparser
+import os 
 
 try:
     from dotenv import load_dotenv
-
     load_dotenv()
-
     URL = f"http://{os.getenv('URL')}/sony/"
-    # password = os.getenv('PASSWORD')
-    headers = {"X-Auth-PSK": os.getenv("PASSWORD"), "Content-Type": "application/xml"}
-    # print(headers)
-    # headers = json.dumps(headers)
-    # with open('./test') as f:
-    #    lines = f.readlines()
-    #    print(lines)
-    #    close()
+    headers = {"X-Auth-PSK": os.getenv('PASSWORD'), "Content-Type": "application/xml"}
 except:
     print(f'Opps, couldnt find environment vars, please validate via "printenv"')
     raise
-
-
-def give_date():
-    current_time = datetime.datetime.now()
-    return current_time
-
 
 def tv_power_on():
     payload = '{\n    "method": "setPowerStatus",\n    "id": 55,\n    "params": [{"status": true\n    }],\n    "version": "1.0"\n}'

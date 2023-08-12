@@ -49,7 +49,6 @@
       <py-script>
         import requests
         import pyodide_http
-
         from pyscript import Element
         import bravia
         def dad_joke():
@@ -60,7 +59,6 @@
             url = 'https://icanhazdadjoke.com/'
             headers = {'Accept': 'application/json'}
             joke_msg = requests.get(url, headers=headers).json().get('joke')
-            test = bravia.give_date()
             paragraph = Element("my-data")
                 # Add current time to the paragraph element
             paragraph.write(joke_msg)
@@ -73,7 +71,6 @@
       <py-script>
         import requests
         import pyodide_http
-
         from pyscript import Element
         from bravia import tv_power_on
         def tv_on():
@@ -94,7 +91,6 @@
       <py-script>
         import requests
         import pyodide_http
-
         from pyscript import Element
         from bravia import tv_power_off
         def tv_off():
@@ -115,7 +111,6 @@
       <py-script>
         import requests
         import pyodide_http
-
         from pyscript import Element
         from bravia import tv_volume_up
         def tv_vol_up():
@@ -135,7 +130,6 @@
       <py-script>
         import requests
         import pyodide_http
-
         from pyscript import Element
         from bravia import tv_volume_down
         def tv_vol_down():
@@ -194,7 +188,6 @@
       <py-script>
         import requests
         import pyodide_http
-
         from pyscript import Element
         from bravia import enter
         def enter_button():
