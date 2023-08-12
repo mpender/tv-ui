@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .button {
+                transition-duration: 0.4s;
+                width: 50%;
+                font-size: 100%;
+            }
+            
+            .button:hover {
+              background-color: #4CAF50; /* Green */
+              color: white;
+              
+              border-color: transparent; 
+        bottom: 0;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        transition-duration: 0.5s;
+            }
+            .button1 {background-color: #4CAF50;}
+            .button2 {background-color: #008CBA;} /* Blue */
+            .text-center {
+              text-align: center;
+            }
+        </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+        <title>Requests Tutorial</title>
+
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    </head>
+
+    <body>
+        <div class="text-center">
+        
+        
+      <py-config>
+        packages = ["requests", "pyodide-http", "python-dotenv"]
+        [[fetch]]
+        files = ["./bravia.py", "./.env"]
+      </py-config>
+  
+      <button py-click="dad_joke()" id="get-joke" class="button button1">Get a Dad Joke</button>
+        <p id="my-data"></p>
+
+      <py-script>
+        import requests
+        import pyodide_http
+        import json as j
+        from pyscript import Element
+        import bravia
+        def dad_joke():
+            # Patch the Requests library so it works with Pyscript
+            pyodide_http.patch_all()
+            # Make a request to the JSON Placeholder API
+            headers = {'Content-Type': 'application/json', 'User-Agent': 'Pyscript Testing'}
+            url = 'https://icanhazdadjoke.com/'
+            headers = {'Accept': 'application/json'}
+            joke_msg = requests.get(url, headers=headers).json().get('joke')
+            test = bravia.give_date()
+            paragraph = Element("my-data")
+                # Add current time to the paragraph element
+            paragraph.write(joke_msg)
+      </py-script>
+      <br>
+
+      <button py-click="tv_on()" id="tv-on" class="button button1"> TV On</button>
+        <p id="tv-on-state"></p>
+
+      <py-script>
+        import requests
+        import pyodide_http
+        import json as j
+        from pyscript import Element
+        from bravia import tv_power_on
+        def tv_on():
+            # Patch the Requests library so it works with Pyscript
+            pyodide_http.patch_all()
+            # Make a request to the JSON Placeholder API
+            
+            test = tv_power_on()
+            paragraph = Element("tv-on-state")
+                # Add current time to the paragraph element
+            print(test)
+      </py-script>
+      <br>
+
+      <button py-click="tv_off()" id="tv-off" class="button button1"> TV Off</button>
+        <p id="tv-off-state"></p>
+
+      <py-script>
+        import requests
+        import pyodide_http
+        import json as j
+        from pyscript import Element
+        from bravia import tv_power_off
+        def tv_off():
+            # Patch the Requests library so it works with Pyscript
+            pyodide_http.patch_all()
+            # Make a request to the JSON Placeholder API
+            
+            test = tv_power_off()
+            paragraph = Element("tv-off-state")
+                # Add current time to the paragraph element
+            print(test)
+      </py-script>
+      <br>
+
+    <button py-click="tv_vol_up()" id="tv-vol-up" class="button button1"> Volume Up</button>
+        <p id="tv-vol-up-state"></p>
+
+      <py-script>
+        import requests
+        import pyodide_http
+        import json as j
+        from pyscript import Element
+        from bravia import tv_volume_up
+        def tv_vol_up():
+            # Patch the Requests library so it works with Pyscript
+            pyodide_http.patch_all()
+            # Make a request to the JSON Placeholder API
+            test = tv_volume_up()
+            paragraph = Element("tv-vol-up-state")
+                # Add current time to the paragraph element
+            print(test)
+      </py-script>
+      <br>
+
+      <button py-click="tv_vol_down()" id="tv-vol-down" class="button button1"> Volume Down</button>
+        <p id="tv-vol-down-state"></p>
+
+      <py-script>
+        import requests
+        import pyodide_http
+        import json as j
+        from pyscript import Element
+        from bravia import tv_volume_down
+        def tv_vol_down():
+            # Patch the Requests library so it works with Pyscript
+            pyodide_http.patch_all()
+            # Make a request to the JSON Placeholder API
+            test = tv_volume_down()
+            paragraph = Element("tv-vol-down-state")
+                # Add current time to the paragraph element
+            print(test)
+      </py-script>
+      <br>
+      <button py-click="tv_vol_quiet()" id="tv-vol-quiet" class="button button1">Set TV Volume To Low</button>
+        <p id="tv-vol-quiet-state"></p>
+
+      <py-script>
+        import requests
+        import pyodide_http
+        import json as j
+        from pyscript import Element
+        from bravia import tv_volume_quiet
+        def tv_vol_quiet():
+            # Patch the Requests library so it works with Pyscript
+            pyodide_http.patch_all()
+            # Make a request to the JSON Placeholder API
+            test = tv_volume_quiet()
+            paragraph = Element("tv-vol-down-state")
+                # Add current time to the paragraph element
+            print(test)
+            print(test)
+      </py-script>
+      <br>
+
+      <button py-click="switch_to_hdmi_test()" id="switch-to-hdmi" class="button button1">Switch to Xbox</button>
+        <p id="switch-to-hdmi-state"></p>
+
+      <py-script>
+        import requests
+        import pyodide_http
+        import json as j
+        from pyscript import Element
+        from bravia import switch_to_hdmi
+        def switch_to_hdmi_test():
+            # Patch the Requests library so it works with Pyscript
+            pyodide_http.patch_all()
+            # Make a request to the JSON Placeholder API
+            test = switch_to_hdmi()
+            paragraph = Element("switch-to-hdmi-state")
+                # Add current time to the paragraph element
+            print(test)
+      </py-script>
+      <br>
+      <button py-click="enter_button()" id="enter-button" class="button button1">Enter Button</button>
+        <p id="enter-button-state"></p>
+
+      <py-script>
+        import requests
+        import pyodide_http
+        import json as j
+        from pyscript import Element
+        from bravia import enter
+        def enter_button():
+            # Patch the Requests library so it works with Pyscript
+            pyodide_http.patch_all()
+            # Make a request to the JSON Placeholder API
+            test = enter()
+            paragraph = Element("enter-button-state")
+                # Add current time to the paragraph element
+            print(test)
+      </py-script>
+
+    </div>
+    </body>
+</html>
